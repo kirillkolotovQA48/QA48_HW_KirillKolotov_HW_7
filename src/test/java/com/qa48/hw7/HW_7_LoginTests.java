@@ -45,4 +45,5 @@ public class HW_7_LoginTests extends HW_7_TestBase {
             Assert.assertEquals(displayedText, user.getEmail());
         }
     }
-}
+} // add2
+
