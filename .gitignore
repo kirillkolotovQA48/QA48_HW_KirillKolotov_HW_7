@@ -1,24 +1,18 @@
-.gradle
+# Gradle
+.gradle/
 build/
 !gradle/wrapper/gradle-wrapper.jar
-!**/src/main/**/build/
-!**/src/test/**/build/
 
-### IntelliJ IDEA ###
+# IntelliJ IDEA
 *.idea
 *.iws
 *.iml
 *.ipr
 out/
 
-/gradle/
-settings.gradle
-\gradlew
-gradlew/
-gradlew.bat
+# Mac OS
+.DS_Store
 
+# Logs
 *.log
 *.png
-
-### Mac OS ###
-.DS_Store
