@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Smoky" verbose="1">
+    <test name="Smoky1">
+        <classes>
+            <class name="com.qa48.hw7.HW_7_LoginTests"/>
+            <class name="com.qa48.hw7.HW_7_AddBookToCartTests">
+                <methods>
+                    <exclude name=".*Negative.*"></exclude>
+                </methods>
+            </class>
+            <class name="com.qa48.hw7.HW_7_DeleteSelectionTests"/>
+        </classes>
+    </test>
+</suite>

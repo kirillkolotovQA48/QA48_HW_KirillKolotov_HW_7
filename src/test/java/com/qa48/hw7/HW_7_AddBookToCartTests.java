@@ -1,5 +1,6 @@
 package com.qa48.hw7;
 
+import com.qa48.hw7.data.UserData;
 import com.qa48.hw7.models.HW_7_RegistForm;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -11,8 +12,8 @@ public class HW_7_AddBookToCartTests extends HW_7_TestBase {
     public void precondition() {
         if (app.getUser().loginLinkPresent()) {
             HW_7_RegistForm user = new HW_7_RegistForm()
-                    .setEmail("23455@mail.ru")
-                    .setPassword("Aa123456789!");
+                    .setEmail(UserData.EMAIL)
+                    .setPassword(UserData.PASSWORD);
 
             app.getUser().clickOnLoginLink();
             app.getUser().typeEmail(user);

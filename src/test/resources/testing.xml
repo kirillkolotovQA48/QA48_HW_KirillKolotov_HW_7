@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="AllTests" verbose="1">
+    <test name="MyTests">
+        <classes>
+            <class name="com.qa48.hw7.HW_7_LoginTests"/>
+            <class name="com.qa48.hw7.HW_7_AddBookToCartTests"/>
+            <class name="com.qa48.hw7.HW_7_DeleteSelectionTests"/>
+        </classes>
+    </test>
+</suite>

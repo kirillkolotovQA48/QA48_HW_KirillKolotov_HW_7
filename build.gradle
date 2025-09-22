@@ -12,24 +12,34 @@ repositories {
 dependencies {
     implementation 'org.seleniumhq.selenium:selenium-java:4.26.0'
     testImplementation 'org.testng:testng:7.11.0'
+    implementation 'ch.qos.logback:logback-classic:1.5.18'
 }
 
+// дефолтный запуск gradlew test
 test {
     useTestNG()
 }
 
-task a1(type: Test) {
+task qa(type: Test) {
     useTestNG()
     if (project.hasProperty('browser')) {
-        systemProperty 'browser', project.property('browser')
+        systemProperty 'browser', "${browser}"
     }
 }
 
-task a2(type: Test) {
+task qa1(type: Test) {
     useTestNG() {
-        suites 'src/test/resources/testng.xml'
+        def suite1= project.hasProperty("suite1")
+        def suite2= project.hasProperty("suite2")
+        def suite3 = project.hasProperty("suite3")
+        if (suite1) {
+            suites 'src/test/resources/testng.xml'
+        }
+        else if (suite2) {
+            suites 'src/test/resources/smoky.xml'
+        }
     }
     if (project.hasProperty('browser')) {
-        systemProperty 'browser', project.property('browser')
+        systemProperty 'browser', "${browser}"
     }
 }

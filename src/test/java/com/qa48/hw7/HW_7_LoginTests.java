@@ -1,5 +1,6 @@
 package com.qa48.hw7;
 
+import com.qa48.hw7.data.UserData;
 import com.qa48.hw7.models.HW_7_RegistForm;
 import org.openqa.selenium.By;
 import org.testng.Assert;
@@ -26,8 +27,8 @@ public class HW_7_LoginTests extends HW_7_TestBase {
     @Test
     public void loginPositiveTest() {
         HW_7_RegistForm user = new HW_7_RegistForm()
-                .setEmail("23455@mail.ru")
-                .setPassword("Aa123456789!");
+                .setEmail(UserData.EMAIL)
+                .setPassword(UserData.PASSWORD);
 
         // Проверяем состояние пользователя
         if (app.getUser().logoutLinkPresent()) {
@@ -45,5 +46,5 @@ public class HW_7_LoginTests extends HW_7_TestBase {
             Assert.assertEquals(displayedText, user.getEmail());
         }
     }
-} // add2
+}
 

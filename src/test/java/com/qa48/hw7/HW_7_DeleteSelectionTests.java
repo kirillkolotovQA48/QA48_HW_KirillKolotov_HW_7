@@ -1,5 +1,6 @@
 package com.qa48.hw7;
 
+import com.qa48.hw7.data.UserData;
 import com.qa48.hw7.models.HW_7_RegistForm;
 import org.openqa.selenium.By;
 import org.testng.Assert;
@@ -15,8 +16,8 @@ public class HW_7_DeleteSelectionTests extends HW_7_TestBase {
             app.getUser().clickOnLoginLink();
 
             HW_7_RegistForm user = new HW_7_RegistForm()
-                    .setEmail("23455@mail.ru")
-                    .setPassword("Aa123456789!");
+                    .setEmail(UserData.EMAIL)
+                    .setPassword(UserData.PASSWORD);
 
             app.getUser().typeEmail(user);
             app.getUser().typePassword(user);

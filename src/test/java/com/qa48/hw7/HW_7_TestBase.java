@@ -7,14 +7,20 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.Browser;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
+import java.lang.reflect.Method;
 import java.time.Duration;
 
 public class HW_7_TestBase {
+
+    Logger logger = LoggerFactory.getLogger(HW_7_TestBase.class);
 
     protected static HW_7_AppManager app;
     protected static WebDriver driver;
@@ -36,4 +42,24 @@ public class HW_7_TestBase {
             app.stop();
         }
     }
+
+    @BeforeMethod
+    public void starTest(Method method){
+        logger.info("Start test" + method.getName());
+    }
+
+    @AfterMethod
+    public void stopTest(ITestResult result){
+        if (result.isSuccess()){
+            logger.info("PASSED: "+result.getMethod().getMethodName());
+        }
+        else {
+            logger.error("FAILED: "+ result.getMethod().getMethodName()+ "Screenshot path: "
+                    +app.getUser().takeScreenshot());
+        }
+        logger.info("Stop test");
+        logger.info("*************************************");
+    }
+
 }
+
